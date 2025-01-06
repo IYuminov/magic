@@ -7,7 +7,15 @@ __pycache__/
 *.so
 
 # Distribution / packaging
+outputs/
+data/*
+magic-d1Dwp4K5-py3.9/
+magic/
+generated_data/*
+weights/*
+.DS_Store
 .Python
+include/
 build/
 develop-eggs/
 dist/
@@ -122,6 +130,7 @@ celerybeat.pid
 *.sage.py
 
 # Environments
+bin/
 .env
 .venv
 env/

@@ -1,0 +1,37 @@
+model:
+  n_epochs: 101
+  learning_rate: 0.0001
+  batch_size: 64
+  random_state: 42
+  latent_dim: 10
+  n_critic: 5
+
+s3:
+  ENDPOINT: ${ENDPOINT}
+  BUCKET_NAME: ${BUCKET_NAME}
+  AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+  AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+  AWS_DEFAULT_REGION: ${AWS_DEFAULT_REGION}
+
+tensorboard:
+  dir: tensorboard_logs
+  url: "http://128.0.1.2:8080"
+
+mlflow:
+  url: "http://127.0.1.1:8080"
+scaler:
+  file_name: "scaler.skops"
+
+data:
+  path_for_save: "data/" # путь для сохранения данных на локальный диск загурженых из S3
+  path_for_dowload: "magic/" # путь до места хранения данных для тренировки и теста модели на S3
+  data_train: "X_train.pickle" # файл с данными для тренировки
+  target_train: "y_train.pickle" # файл таргета для тренировки
+  data_test: "X_test.pickle" # файл с данными для теста
+  target_test: "y_test.pickle" # файл таргета для теста
+  n_inputs: 1 # размерность входных данных (модель генерирует параметры кластера по таргету)
+  n_outputs: 10 # размерность выходных данных
+  result_save_path: "generated_data/" # путь до места сохранения результата генерации на локальном диске
+
+weight:
+  path_for_save: "weights/" # место хранения весов модели на локальном диске
