@@ -76,8 +76,16 @@ https://github.com/IYuminov/gen_models_ai_hse/blob/main/2024/homeworks/hw2/HW2.i
 
 # Запуск тренировки и инференса
 
-После этапа build тренировка модели запускается командой: docker run -d --name
-magic-train-container magic
+Для корректнй работы с хранилищем S3 в корне репозитория создайте файл .env с переменными окружения, хранящими параметры подключения к хранилищу. 
 
-Инференс модели запускается командой: docker run -d --name magic-infer-container
-magic -e SCRIPT_TO_RUN=infer.py
+*❗️ Нэйминг переменных можно посмотреть в configs/config.yaml в разделе s3.*
+
+- Запуск в Docker:
+После этапа build тренировка модели запускается командой:  
+```docker run -d --name magic-train-container magic```
+
+- Запуск на локальной машине:
+```
+poetry run python train.py  
+poetry run python infer.py
+```
